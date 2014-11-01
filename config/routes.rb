@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   # CATEGORIES ROUTES
   get 'categories/new', to: 'categories#new', as: :new_categories
 
-  get 'categories/create'
+  post 'categories/', to: 'categories#create', as: :categories
 
   get 'categories/update'
 

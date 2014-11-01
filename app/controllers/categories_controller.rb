@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   def new
     @categories = Category.all
+    @category = Category.new
   end
 
   def create
