@@ -1,25 +1,25 @@
 Rails.application.routes.draw do
 
   # HOME PAGE
-  get 'welcome/index', to: 'welcome#index', as: :root
+  get '/', to: 'welcome#index', as: :root
 
   # POSTS ROUTES
-  get 'posts/new'
+  get 'posts/new', to: 'posts#new', as: :new_post
 
-  get 'posts/create'
+  post 'posts/', to: 'posts#create', as: :posts
 
-  get 'posts/update'
+  patch 'posts/update/:id', to: 'posts#update', as: :update_post
 
   get 'posts/edit'
 
   get 'posts/destroy'
 
-  get 'posts/show'
+  get 'posts/show/:id', to: 'posts#show', as: :post
 
-  get 'posts/index', to: 'posts#index', as: :posts
+  get 'posts/index'
 
   # CATEGORIES ROUTES
-  get 'categories/new'
+  get 'categories/new', to: 'categories#new', as: :new_categories
 
   get 'categories/create'
 

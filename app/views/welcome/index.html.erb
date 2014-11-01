@@ -1,2 +1,18 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h2>Welcome#index</h2>
+<ul>
+  <li>Development Links</li>
+  <li><%= link_to "New Post", new_post_path %></li>
+</ul>
+
+<% @posts.each do |post| %>
+  <p>
+    <%= link_to "Dear #{post.title}", post_path(post.id) %>
+  </p>
+  <p>
+    I want you to know: <%= post.content %>
+  </p>
+  <p>
+    <%= post.vote %> people stand with you
+  </p>
+  <%= button_to "Solidarity!", update_post_path(post.id), params:{'post[upvote]' => true},method: :patch%>
+<% end %>
