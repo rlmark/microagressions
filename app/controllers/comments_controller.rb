@@ -4,13 +4,25 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # raise params.inspect
     @comment = Comment.new(params.require(:comment).permit(:content, :post_id))
     @comment.downvote = 0
-    if @comment.save
+    if quality_check == false
+      redirect_to root_path, alert: "You're banned for saying nasty things."
+    elsif @comment.save
+      session[:comment_id] = []
+      session[:comment_id] << @comment.id
       redirect_to post_path(@comment.post_id)
     else
       render :new
+    end
+  end
+
+  # checks if commenter is a jerk
+  def quality_check
+    session[:comment_id].each do |comment_id|
+      if Comment.find(comment_id).downvote >= 12
+        return false
+      end
     end
   end
 
@@ -22,7 +34,6 @@ class CommentsController < ApplicationController
     if @comment.downvote >= 12
       @comment.update(content: "This comment has been removed for being shitty")
     end
-    # @comment.quality_check(@comment.id)
     @comment.save
     redirect_to post_path(@comment.post_id)
   end
