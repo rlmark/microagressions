@@ -7,6 +7,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.vote = 0
     if @post.save
+      session[:id] = @post.id
       redirect_to new_categories_path
     else
       render :new
