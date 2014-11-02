@@ -5,3 +5,16 @@
 <p>
   <%= @post.vote %> people stand with you
 </p>
+
+<%= link_to "Add a comment", new_comment_path(@post.id) %>
+
+<div class="comments">
+  <% @post.comments.each do |comment| %>
+  <p>
+    <%= comment.content %>
+  </p>
+  <p>
+    Downvotes: <%= comment.downvote %>
+  </p>  
+  <% end %>
+</div>

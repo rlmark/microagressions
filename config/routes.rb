@@ -34,9 +34,9 @@ Rails.application.routes.draw do
   get 'categories/index'
 
   # COMMENTS ROUTES
-  get 'comments/new'
+  get 'comments/new/:id', to: 'comments#new', as: :new_comment
 
-  get 'comments/create'
+  post 'comments/create', to: 'comments#create', as: :comments
 
   get 'comments/update'
 
