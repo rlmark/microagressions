@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   post 'categories/', to: 'categories#create', as: :categories
 
-  get 'categories/update'
+  patch 'categories/update', to: 'categories#update', as: :update_categories
 
   get 'categories/edit'
 
