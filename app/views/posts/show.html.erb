@@ -15,6 +15,7 @@
   </p>
   <p>
     Downvotes: <%= comment.downvote %>
-  </p>  
+  </p>
+  <%= button_to "Downvote", update_comment_path(comment.id), params:{'comment[jerk]' => true}, method: :patch%>
   <% end %>
 </div>

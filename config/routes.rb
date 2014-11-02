@@ -38,7 +38,7 @@ Rails.application.routes.draw do
 
   post 'comments/create', to: 'comments#create', as: :comments
 
-  get 'comments/update'
+  patch 'comments/update/:id', to: 'comments#update', as: :update_comment
 
   get 'comments/edit'
 

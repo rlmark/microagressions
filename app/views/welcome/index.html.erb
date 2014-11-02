@@ -15,5 +15,8 @@
   <p>
     <%= post.vote %> people stand with you
   </p>
+  <p>
+    <%= post.comments.length %> comments
+  </p>
   <%= button_to "Solidarity!", update_post_path(post.id), params:{'post[upvote]' => true},method: :patch%>
 <% end %>
