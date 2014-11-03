@@ -29,18 +29,18 @@
 
       <h3><%= link_to "Dear #{post.title}", post_path(post.id) %></h3>
       <p>
-        I want you to know, <%= post.content %>
+        <span class="display">I want you to know,</span> <%= post.content %>
       </p>
-      <p>Infraction type:
+      <p><span class="display">Infraction type:</span>
         <% post.categories.each do |c| %>
           <%= c.title %>.
         <% end %>
       </p>
       <p>
-        <%= post.comments.length %> comments
+        <span class="display"><%= post.comments.length %></span> comments
       </p>
       <p>
-        <%= post.vote %> people stand with you
+        <span class="display"><%= post.vote %></span> people stand with you
       </p>
 
       <%= button_to "Solidarity!", update_post_path(post.id), params:{'post[upvote]' => true},method: :patch, class: 'btn btn-default'%>
