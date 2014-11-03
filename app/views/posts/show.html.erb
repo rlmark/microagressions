@@ -7,7 +7,7 @@
   <p>
     <%= @post.vote %> people stand with you
   </p>
-  <%= button_to "Solidarity!", update_post_path(@post.id), params:{'post[upvote]' => true},method: :patch, class: 'btn btn-default'%>
+  <%#= button_to "Solidarity!", update_post_path(@post.id), params:{'post[upvote]' => true},method: :patch, class: 'btn btn-default'%>
 </div>
 
 <h3><%= link_to "Add a comment", new_comment_path(@post.id)%></h3>
