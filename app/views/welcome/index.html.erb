@@ -16,13 +16,14 @@
       <li><%= link_to "#{category.title}", "/?category=#{category.id}"%></li>
       <% end %>
     </ul>
-
-    <% if flash.notice %>
-      <div class="notice"><%= flash.notice %></div>
-    <% end %>
   </div>
 
   <div class="allposts col-sm-9">
+
+    <% if flash.notice %>
+      <div class="notice individual-post"><%= flash.notice %></div>
+    <% end %>
+
     <% @posts.each do |post| %>
     <div class=individual-post>
 
