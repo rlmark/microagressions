@@ -3,41 +3,49 @@
   <li><%#= link_to "Categories", new_categories_path %></li>
 </ul> -->
 
-<div class="new">
+<div class="new jumbotron">
   <h2><%= link_to "Blargh! Add a New Microagression!", new_post_path %></h2>
 </div>
 
-<div class="categories">
-  <ul>
-    <li><%= link_to "All Categories", root_path %></li>
-    <% @categories.each do |category| %>
-    <li><%= link_to "#{category.title}", "/?category=#{category.id}"%></li>
+<div class="row">
+
+  <div class="categories col-sm-3">
+    <ul>
+      <li><h3><%= link_to "All Categories", root_path %></h3></li>
+      <% @categories.each do |category| %>
+      <li><%= link_to "#{category.title}", "/?category=#{category.id}"%></li>
+      <% end %>
+    </ul>
+
+    <% if flash.notice %>
+      <div class="notice"><%= flash.notice %></div>
     <% end %>
-  </ul>
+  </div>
+
+  <div class="allposts col-sm-9">
+    <% @posts.each do |post| %>
+    <div class=individual-post>
+
+      <h3><%= link_to "Dear #{post.title}", post_path(post.id) %></h3>
+      <p>
+        I want you to know: <%= post.content %>
+      </p>
+      <p>Infraction type: 
+        <% post.categories.each do |c| %>
+          <%= c.title %>.
+        <% end %>
+      </p>
+      <p>
+        <%= post.comments.length %> comments
+      </p>
+      <p>
+        <%= post.vote %> people stand with you
+      </p>
+
+      <%= button_to "Solidarity!", update_post_path(post.id), params:{'post[upvote]' => true},method: :patch, class: 'btn btn-default'%>
+    </div>
+
+    <% end %>
+  </div>
+
 </div>
-
-<% if flash.notice %>
-  <div class="notice"><%= flash.notice %></div>
-<% end %>
-
-<% @posts.each do |post| %>
-  <p>
-    <%= link_to "Dear #{post.title}", post_path(post.id) %>
-  </p>
-  <p>
-    I want you to know: <%= post.content %>
-  </p>
-  <p>
-    <% post.categories.each do |c| %>
-      <%= c.title %>
-    <% end %>
-  </p>
-  <p>
-    <%= post.comments.length %> comments
-  </p>
-  <p>
-    <%= post.vote %> people stand with you
-  </p>
-
-  <%= button_to "Solidarity!", update_post_path(post.id), params:{'post[upvote]' => true},method: :patch%>
-<% end %>

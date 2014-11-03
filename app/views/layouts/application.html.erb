@@ -8,10 +8,13 @@
 </head>
 <body>
   <header>
-    <h1>Microagression Counter</h1>
+    <h1 class="container"><%= link_to "Ughregator", root_path %><small> for your daily microagressions</small></h1>
   </header>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
+
 
 </body>
 </html>

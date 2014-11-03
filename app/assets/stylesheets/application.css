@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+a{
+  color: #FF3B77;
+}
+
+a:hover {
+  color: #A12566;
+}
+
+p{
+  font-size: 1.1em;
+}
+
+.form-control {
+  border-color: #CDFF00;
+}
