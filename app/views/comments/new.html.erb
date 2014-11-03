@@ -2,7 +2,7 @@
 
 <%= form_for @comment do |f| %>
   <%= f.hidden_field :post_id, value: params[:id] %>
-  <%= f.label :content, "My two cents:" %><br>
+  <%= f.label :content, "My two cents:", class: 'display' %><br>
   <%= f.text_area :content, class: 'form-control' %>
   <br>
   <%= f.submit "Contribute", class: 'btn btn-default'%>

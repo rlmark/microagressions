@@ -2,10 +2,10 @@
   <h2>Dear <%= @post.title %></h2>
 
   <p>
-    I want you to know, <%= @post.content %>
+    <span class="display">I want you to know, </span><%= @post.content %>
   </p>
   <p>
-    <%= @post.vote %> people stand with you
+    <span class='display'><%= @post.vote %></span> people stand with you
   </p>
   <%#= button_to "Solidarity!", update_post_path(@post.id), params:{'post[upvote]' => true},method: :patch, class: 'btn btn-default'%>
 </div>
