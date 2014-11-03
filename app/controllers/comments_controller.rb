@@ -19,10 +19,13 @@ class CommentsController < ApplicationController
 
   # checks if commenter is a jerk
   def quality_check
-    session[:comment_id].each do |comment_id|
+    if session[:comment_id] == nil
+      return true
+    else session[:comment_id].each do |comment_id|
       if Comment.find(comment_id).downvote >= 12
         return false
       end
+    end
     end
   end
 
