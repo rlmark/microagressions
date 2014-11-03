@@ -17,6 +17,11 @@
     I want you to know: <%= post.content %>
   </p>
   <p>
+    <% post.categories.each do |c| %>
+      <%= c.title %>
+    <% end %>
+  </p>
+  <p>
     <%= post.comments.length %> comments
   </p>
   <p>

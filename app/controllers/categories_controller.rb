@@ -15,7 +15,11 @@ class CategoriesController < ApplicationController
   def update
     @post = Post.find(session[:id])
     @post.category_ids = params[:category_ids]
-    @post.save
+    if @post.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit

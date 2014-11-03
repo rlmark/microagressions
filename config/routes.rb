@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   # HOME PAGE
   get '/', to: 'welcome#index', as: :root
 
+  # # SESSIONS ROUTES
+  #
+  # get 'sessions/refresh', to: 'sessions#refresh', as: :refresh_session
+  #
+  # post 'sessions/delete', to: 'sessions#delete', as: :delete_session
+
   # POSTS ROUTES
   get 'posts/new', to: 'posts#new', as: :new_post
 
