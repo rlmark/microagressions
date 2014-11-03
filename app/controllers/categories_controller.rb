@@ -13,7 +13,9 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    raise params.inspect
+    @post = Post.find(session[:id])
+    @post.category_ids = params[:category_ids]
+    @post.save
   end
 
   def edit

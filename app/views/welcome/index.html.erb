@@ -5,6 +5,10 @@
   <li><%= link_to "Categories", new_categories_path %></li>
 </ul>
 
+<% if flash.notice %>
+  <div class="notice"><%= flash.notice %></div>
+<% end %>
+
 <% @posts.each do |post| %>
   <p>
     <%= link_to "Dear #{post.title}", post_path(post.id) %>
@@ -13,10 +17,11 @@
     I want you to know: <%= post.content %>
   </p>
   <p>
-    <%= post.vote %> people stand with you
-  </p>
-  <p>
     <%= post.comments.length %> comments
   </p>
+  <p>
+    <%= post.vote %> people stand with you
+  </p>
+
   <%= button_to "Solidarity!", update_post_path(post.id), params:{'post[upvote]' => true},method: :patch%>
 <% end %>

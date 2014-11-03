@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params.require(:comment).permit(:content, :post_id))
     @comment.downvote = 0
     if quality_check == false
-      redirect_to root_path, alert: "You're banned for saying nasty things."
+      redirect_to root_path, :notice => "You have received too many downvotes. Your comment was not saved."
     elsif @comment.save
       session[:comment_id] = []
       session[:comment_id] << @comment.id
