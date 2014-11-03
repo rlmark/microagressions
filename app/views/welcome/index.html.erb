@@ -28,9 +28,9 @@
 
       <h3><%= link_to "Dear #{post.title}", post_path(post.id) %></h3>
       <p>
-        I want you to know: <%= post.content %>
+        I want you to know, <%= post.content %>
       </p>
-      <p>Infraction type: 
+      <p>Infraction type:
         <% post.categories.each do |c| %>
           <%= c.title %>.
         <% end %>

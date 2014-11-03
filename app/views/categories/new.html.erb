@@ -1,7 +1,7 @@
 <h2>Tag it</h2>
 
 <%= form_tag(update_categories_path, method: :patch) do -%>
-  <ul>
+  <ul class="tag-list">
     <% @categories.each do |category| %>
         <li>
           <%= check_box_tag 'category_ids[]', category.id %>
@@ -9,13 +9,13 @@
         </li>
     <% end %>
   </ul>
-  <%= submit_tag 'Tag' %>
+  <%= submit_tag 'Tag', class: 'btn btn-default' %>
 <% end -%>
 
 <h3>Create a new category</h3>
 <%= form_for @category do |f|%>
   <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.submit %>
+  <%= f.text_field :title, class: "form-control" %>
+  <br>
+  <%= f.submit 'Sumit', class: 'btn btn-default' %>
 <% end %>
