@@ -38,6 +38,10 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development do
   gem 'better_errors', '~> 2.0.0'
   gem 'binding_of_caller'
